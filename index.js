@@ -4,7 +4,7 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 
 app.get('/', function(req, res) {
-  var ip = req.ip,
+  var ip = req.ip.replace(/^.*:/, ''),
       acceptLanguage = req.get('Accept-Language'),
       language = acceptLanguage.split(',')[0],
       userAgent = req.get('User-Agent'),
